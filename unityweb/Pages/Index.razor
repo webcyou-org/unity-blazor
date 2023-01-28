@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject IJSRuntime JSRuntime;
+
+<div id="unityContainer" style="width: 100%; height: calc(100% - 10px);"></div>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("jsFunctions.showUnity");
+
+        }
+    }
+
+}
